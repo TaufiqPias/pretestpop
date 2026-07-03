@@ -1,0 +1,1667 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAUFIQ ENGLISH POP</title>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        // Replace "YOUR_PUBLIC_KEY" with the public key provided in your EmailJS account dashboard
+        emailjs.init("GzIixKFa31smtLYnx");
+      })();
+    </script>
+    <style>
+      :root {
+        --bg-color: #2a2a2b;
+        --card-bg: #3f3f3f;
+        --text-main: #0f172a;
+        --text-muted: #5e8b64;
+        --primary: #21b935;
+        --primary-hover: #259747;
+        --success: #10b981;
+        --success-light: #ecfdf5;
+        --error: #ef4444;
+        --error-light: #fef2f2;
+        --border: #e2e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.7;
+        padding: 1.5rem 1rem;
+      }
+
+      .container {
+        max-width: 950px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      header h1 {
+        color: var(--primary);
+        font-size: 2.2rem;
+        margin-bottom: 0.25rem;
+      }
+
+      header p {
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      /* Compact Control Hub Modern Layout */
+      .control-hub {
+        background: var(--card-bg);
+        padding: 0.75rem 1.2rem;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .directory-nav {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .dir-label {
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: white;
+        margin-right: 0.5rem;
+      }
+
+      .topic-badge {
+        background: #81e7bd;
+        color: #383838;
+        padding: 0.35rem 0.65rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 1px solid transparent;
+      }
+
+      .topic-badge:hover {
+        background: #6bcc78;
+        color: charcoal;
+        border-color: #2e2e2e;
+      }
+
+      .jump-box {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: auto;
+      }
+
+      .jump-box label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      .jump-input {
+        font-size: 0.9rem;
+        padding: 0.35rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        outline: none;
+        width: 70px;
+        text-align: center;
+      }
+
+      .jump-input:focus {
+        border-color: var(--primary);
+      }
+
+      .btn-go {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.35rem 0.9rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+
+      .btn-go:hover {
+        background-color: var(--primary-hover);
+      }
+
+      /* Exercise UI Panels */
+      .exercise-card {
+        display: none;
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border);
+      }
+
+      .exercise-card.active {
+        display: block;
+      }
+
+      .exercise-header {
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-bottom: 2px solid #f1f5f9;
+        padding-bottom: 0.5rem;
+      }
+
+      .word-box {
+        background-color: #bff569;
+        border: 1px dashed #cbd5e1;
+        padding: 0.85rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: center;
+      }
+
+      .word-token {
+        background: #ffffff;
+        padding: 0.25rem 0.65rem;
+        border-radius: 4px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .passage {
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+        text-align: justify;
+        color: #f9fafc;
+      }
+
+      .sentence-item {
+        margin-bottom: 1.25rem;
+        display: block;
+      }
+
+      /* --- Standard Inline Style for Exercises 1-44 --- */
+      .blank-container {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin: 0 0.35rem;
+        vertical-align: middle;
+      }
+
+      .blank-label {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #9e9e9e;
+      }
+
+      .blank-input {
+        font-size: 0.95rem;
+        padding: 0.15rem 0.4rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        outline: none;
+        width: 120px;
+        text-align: center;
+        transition: all 0.2s;
+      }
+
+      /* --- Special Block/Separate Line Style for Exercise 45 Transformation --- */
+      .block-input-layout .blank-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 0.4rem;
+        margin-bottom: 0.8rem;
+        width: 100%;
+      }
+
+      .block-input-layout .blank-label {
+        font-size: 0.9rem;
+        background: #35af31;
+        color: white;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        min-width: 28px;
+        text-align: center;
+      }
+
+      .block-input-layout .blank-input {
+        width: 100%;
+        max-width: 750px;
+        text-align: left;
+        padding: 0.4rem 0.6rem;
+        border: 2px solid #cbd5e1;
+        border-radius: 6px;
+      }
+
+      .block-input-layout .correction-mark {
+        margin-top: 0;
+        display: inline-block;
+        text-align: left;
+      }
+
+      .blank-input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+      }
+
+      .blank-input:disabled {
+        background-color: #f1f5f9;
+        color: #0f172a;
+        cursor: not-allowed;
+      }
+
+      .card-actions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.75rem;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 1.25rem;
+      }
+
+      .btn {
+        font-size: 0.95rem;
+        padding: 0.5rem 1.25rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s;
+      }
+
+      .btn-submit {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .btn-submit:hover:not(:disabled) {
+        background-color: var(--primary-hover);
+      }
+
+      .btn-submit:disabled {
+        background-color: #5e7e52;
+        color: #597251;
+        cursor: not-allowed;
+      }
+
+      .btn-check-sec {
+        background-color: #0f172a;
+        color: white;
+      }
+
+      .btn-check-sec:hover:not(:disabled) {
+        background-color: #1e293b;
+      }
+
+      .btn-check-sec:disabled {
+        background-color: #e2e8f0;
+        color: #94a3b8;
+        cursor: not-allowed;
+      }
+
+      .input-success {
+        border-color: var(--success) !important;
+        background-color: var(--success-light) !important;
+        color: #065f46 !important;
+        font-weight: bold;
+      }
+
+      .input-error {
+        border-color: var(--error) !important;
+        background-color: var(--error-light) !important;
+        color: #991b1b !important;
+        text-decoration: line-through;
+      }
+
+      .correction-mark {
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin-top: 1px;
+        display: inline-block;
+        margin-left: 0.25rem;
+      }
+
+      .text-success {
+        color: var(--success);
+      }
+      .text-error {
+        color: var(--error);
+        font-weight: bold;
+        text-decoration: none;
+        margin-left: 0.25rem;
+      }
+
+      .action-zone {
+        background: rgb(186, 247, 173);
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border);
+        padding: 1rem 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .action-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .btn-nav {
+        background-color: #7af555;
+        color: rgb(58, 58, 58);
+        width: 100px;
+      }
+
+      .btn-nav:hover:not(:disabled) {
+        background-color: #3ac73a;
+      }
+
+      .btn-nav:disabled {
+        background-color: #e2e8f0;
+        color: #94a3b8;
+        cursor: not-allowed;
+      }
+
+      .status-tracker {
+        font-weight: 600;
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      /* Session Setup Modal Backdrop Styling */
+      .student-modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+      }
+
+      .student-modal-box {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 14px;
+        max-width: 450px;
+        width: 90%;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        text-align: center;
+      }
+
+      .student-modal-box h2 {
+        color: #0f172a;
+        margin-bottom: 0.75rem;
+        font-size: 1.6rem;
+      }
+
+      .student-modal-box p {
+        color: #64748b;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .student-modal-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        outline: none;
+        text-align: center;
+      }
+
+      .student-modal-input:focus {
+        border-color: var(--primary);
+      }
+
+      .student-modal-btn {
+        background-color: var(--primary);
+        color: white;
+        width: 100%;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .student-modal-btn:hover {
+        background-color: var(--primary-hover);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="studentModal" class="student-modal-backdrop" style="display: none">
+      <div class="student-modal-box">
+        <h2>Student Information</h2>
+        <p>
+          Please enter your full name before continuing to the pre-test portal.
+        </p>
+        <input
+          type="text"
+          id="studentNameInput"
+          class="student-modal-input"
+          placeholder="Enter Full Name Here"
+          autocomplete="off"
+        />
+        <button class="student-modal-btn" onclick="saveStudentSession()">
+          Enter Portal
+        </button>
+      </div>
+    </div>
+
+    <div class="container">
+      <header>
+        <h1>Pre-Test Online Portal</h1>
+        <p>
+          These exercises are carefully chosen for the 2026 pretest examination.
+        </p>
+      </header>
+
+      <div class="control-hub">
+        <div class="directory-nav">
+          <span class="dir-label">Topics:</span>
+          <span class="topic-badge" onclick="jumpToExercise(1)"
+            >Forming Words (1-6)</span
+          >
+          <span class="topic-badge" onclick="jumpToExercise(7)"
+            >Prepositions (7-15)</span
+          >
+          <span class="topic-badge" onclick="jumpToExercise(16)"
+            >Verbs (16-21)</span
+          >
+          <span class="topic-badge" onclick="jumpToExercise(22)"
+            >Connectors (22-28)</span
+          >
+          <span class="topic-badge" onclick="jumpToExercise(29)"
+            >Suffix/Prefix (29-36)</span
+          >
+          <span class="topic-badge" onclick="jumpToExercise(37)"
+            >Tags (37-44)</span
+          >
+          <span class="topic-badge" onclick="jumpToExercise(45)"
+            >Transform (45)</span
+          >
+        </div>
+        <div class="jump-box">
+          <label for="exercise-target-num">Jump to:</label>
+          <input
+            type="number"
+            id="exercise-target-num"
+            class="jump-input"
+            min="1"
+            max="45"
+            placeholder="1-45"
+          />
+          <button class="btn-go" onclick="processManualJump()">Go</button>
+        </div>
+      </div>
+
+      <div id="exercises-container"></div>
+
+      <div class="action-zone">
+        <div class="action-controls">
+          <button id="prev-btn" class="btn btn-nav" disabled>Previous</button>
+          <span class="status-tracker" id="status-tracker"
+            >Exercise 1 of 45</span
+          >
+          <button id="next-btn" class="btn btn-nav">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const exercisesData = [
+        // ================= SET 1: WORDS CHANGING FORM (1-6) =================
+        {
+          id: 1,
+          title:
+            "Exercise 1: Complete the text using the words in the box as needed. You may need to change the forms of some words. You may need to use one word more than once.",
+          words: [
+            "individual",
+            "social",
+            "practical",
+            "maintain",
+            "express",
+            "remains",
+            "have",
+            "understanding",
+            "communicate",
+          ],
+          answers: [
+            "social",
+            "communicate",
+            "have",
+            "remains",
+            "practical",
+            "maintain",
+            "individuals",
+            "expressing",
+            "understanding",
+            "communication",
+          ],
+          template:
+            "Letter writing is an important part of our (a) life and a key way to (b). Modern tools like telephones, cell phones, fax, and email (c) made communication faster; yet writing letters (d) a valuable skill. Writing letters is more than just a (e) tool; it is an art that helps build and (f) strong relationships among (g), offices, and businesses. By (h) ideas clearly and politely, letters foster (i), trust, and goodwill, making them a timeless method of meaningful (j).",
+        },
+        {
+          id: 2,
+          title:
+            "Exercise 2: Complete the text using the words in the box as needed. You may need to change the forms of some words. You may need to use one word more than once.",
+          words: [
+            "burn",
+            "widen",
+            "ignorant",
+            "narrow",
+            "read",
+            "enrich",
+            "talk",
+            "competitive",
+            "enlighten",
+          ],
+          answers: [
+            "reading",
+            "competitive",
+            "enrich",
+            "current",
+            "read",
+            "narrow",
+            "ignorant",
+            "talks",
+            "enlightened",
+            "widen",
+          ],
+          template:
+            "A student must have the habit of (a) newspaper everyday. Mere bookish knowledge is not enough in this (b) world. Newspapers help him (c) his general knowledge and make him aware of the (d) issues both inside and outside the country. A man who doesn't (e) newspapers is like a frog in a (f) well. Being (g) of the current affairs, he cannot take part in the (h) and discussions in an (i) society and feels like a fish out of water. By reading newspapers, one can (j) one's range of knowledge in the field of science, history, geography, literature, etc.",
+        },
+        {
+          id: 3,
+          title:
+            "Exercise 3: Complete the text using the words in the box as needed. You may need to change the forms of some words. You may need to use one word more than once.",
+          words: [
+            "symbol",
+            "laid",
+            "prosperity",
+            "sovereign",
+            "uphold",
+            "independent",
+            "pride",
+            "value",
+            "use",
+          ],
+          answers: [
+            "pride",
+            "independent",
+            "prosperity",
+            "symbol",
+            "upholding",
+            "used",
+            "laid",
+            "valuable",
+            "sovereignty",
+            "uphold",
+          ],
+          template:
+            "A national flag is a matter of (a) for a nation. Every (b) nation in the world has a national flag of its own. As a nation with (c), we have a national flag. Our national flag is the (d) of independence, sovereignty and (e). Red and green colours are used in it. The red colour (f) in the flag indicates the martyrs who (g) down their (h) lives for the (i) of our country. We must (j) its honour.",
+        },
+        {
+          id: 4,
+          title:
+            "Exercise 4: Complete the text using the words in the box as needed. You may need to change the forms of some words. You may need to use one word more than once.",
+          words: [
+            "supervise",
+            "offence",
+            "assess",
+            "greatly",
+            "unethical",
+            "failure",
+            "learners",
+            "educate",
+            "fair",
+          ],
+          answers: [
+            "assessing",
+            "learners",
+            "fair",
+            "supervise",
+            "unethical",
+            "offence",
+            "education",
+            "failure",
+            "greatly",
+            "educated",
+          ],
+          template:
+            "Examination is the process of (a) the academic knowledge of the (b). So, it should be absolutely (c). The authority should conduct and (d) it in the best possible way. Adopting (e) activities in the examination is a great (f). It degrades the standard of (g). In case of the students' (h) to acquire true education, the nation will suffer (i). So all students should make the best use of time in order to be truly (j).",
+        },
+        {
+          id: 5,
+          title:
+            "Exercise 5: Fill in the blanks with the words from the box. You may need to change the forms of some of the words. You may need to use one word more than once.",
+          words: [
+            "the",
+            "civil",
+            "without",
+            "old",
+            "to",
+            "bombs",
+            "innocent",
+            "impact",
+            "brutal",
+            "filled",
+          ],
+          answers: [
+            "old",
+            "to",
+            "civilian",
+            "the",
+            "brutality",
+            "filled",
+            "impacts",
+            "innocent",
+            "being",
+            "without",
+          ],
+          template:
+            "War is a curse for human civilization. In (a) days, war was confined (b) the warriors only. But today all people both (c) and military have to suffer from (d) curse of war. Rich cities, fields (e) with green crops and beautiful places are affected by its (f). Even the (g) citizens have to die a tragic death. Men, women, boys, children all are (h) killed (i) any reason.",
+        },
+        {
+          id: 6,
+          title:
+            "Exercise 6: Fill in the blanks with the words from the box. You may need to change the forms of some of the words. You may need to use one word more than once.",
+          words: [
+            "be",
+            "concentrate",
+            "to",
+            "succeed",
+            "deny",
+            "compensation",
+            "competence",
+            "off",
+            "of",
+            "about",
+          ],
+          answers: [
+            "competent",
+            "concentration",
+            "be",
+            "about",
+            "compensate",
+            "of",
+            "denying",
+            "success",
+            "off",
+            "to",
+          ],
+          template:
+            "The present world is very competitive. Therefore, you need to be (a). As a student, you should have full (b) on your studies. You should not (c) callous (d) your studies. Nothing can (e) for your loss (f) wasting time. There is no (g) the fact that (h) depends on hard labour. Therefore, you must shake (i) your idleness. Idleness brings (j) ruin.",
+        },
+
+        // ================= SET 2: PREPOSITIONS (7-15) =================
+        {
+          id: 7,
+          title: "Exercise 7: Fill in the blanks with suitable prepositions.",
+          answers: ["for", "with", "with", "of", "in"],
+          template:
+            "Man has an unquenchable thirst (a) knowledge. He is never satisfied (b) what has known and seen. The curiosity to know more, coupled (c) the indomitable spirit (d) adventure has inspired him to undertake and carry out dangerous tasks. It eventually resulted (e) epoch-making discoveries.",
+        },
+        {
+          id: 8,
+          title: "Exercise 8: Fill in the blanks with suitable prepositions.",
+          answers: ["to", "from", "of", "upon", "to"],
+          template:
+            "Poverty was hindrance (a) his success. It hindered him (b) going abroad. But he did not lose heart. He was hopeful (c) his success. He hit (d) a plan. The plan worked well. He succeeded in his attempt. For this he was thankful (e) Allah.",
+        },
+        {
+          id: 9,
+          title: "Exercise 9: Fill in the blanks with suitable prepositions.",
+          answers: ["to", "from", "about", "into", "up"],
+          template:
+            "All know that smoking is injurious (a) health. But those who smoke do not abstain (b) smoking. They are not careful (c) their health. Finally the fall (d) many diseases. It is hoped that they will give (e) smoking.",
+        },
+        {
+          id: 10,
+          title: "Exercise 10: Fill in the blanks with suitable prepositions.",
+          answers: ["of", "to", "without", "for", "in"],
+          template:
+            "Freedom is a birth right (a) every human being. Similarly every nation has the right (b) be independent. No nation can prosper (c) independence. Independence gives proper scope (d) the development of a nation. Struggle for independence has been going on (e) many countries of the world.",
+        },
+        {
+          id: 11,
+          title: "Exercise 11: Fill in the blanks with suitable prepositions.",
+          answers: ["from", "for", "to", "from", "for"],
+          template:
+            "Today man has been suffering (a) various diseases. And there is no remedy (b) some fatal diseases. So man is subject (c) decay and death. One day he will depart (d) this world. Here he cannot live (e) a long time.",
+        },
+        {
+          id: 12,
+          title: "Exercise 12: Fill in the blanks with suitable prepositions.",
+          answers: ["by", "in", "of", "out", "away"],
+          template:
+            "You know that Bangladesh is a tropical country. It has a moderate climate. The climate is greatly influenced (a) the monsoon which is a seasonal wind, it blows (b) from the Bay of Bengal. It is from south west (c) our country and parts of India from April to October. Crops are damaged. House and trees are wiped (d) . Man and property are washed (e) .",
+        },
+        {
+          id: 13,
+          title: "Exercise 13: Fill in the blanks with suitable prepositions.",
+          answers: ["in", "than", "for", "to", "until"],
+          template:
+            "The Empire State Building is located (a) New York in the USA. It is much taller (b) the Eiffel Tower. It was 1250 feet tall during its inauguration by president Hoover Cleveland in 1931. Then in 1951 a TV transmission tower was added (c) radio and TV broadcast. Thus the tower added another 222 feet (d) its height and this brought on the total height of 1472 feet. The 102 storeyed Empire State Building remained the world’s tallest skyscraper (e) 1971. But now it is challenged by some more high-rise buildings.",
+        },
+        {
+          id: 14,
+          title: "Exercise 14: Fill in the blanks with suitable prepositions.",
+          answers: ["in", "to", "at", "in", "to"],
+          template:
+            "As the work of the women is neglected, they are ignored (a) decision making. Social prejudice and food deprivation lead (b) maternal and child mortality (c) high rate. Violence at home against women is prevalent (d) our country. Many reasons work behind these violence. Dowry and inability to give birth (e) male child are responsible.",
+        },
+        {
+          id: 15,
+          title: "Exercise 15: Fill in the blanks with suitable prepositions.",
+          answers: ["of", "in", "in", "on", "to"],
+          template:
+            "He was proud (a) his talents. But none should take pride (b) their talents. Pride results (c) ruin. Those who have prided themselves (d) their talens have been subjectdes (e) humiliation.",
+        },
+
+        // ================= SET 3: RIGHT FORM OF VERBS (16-21) =================
+        {
+          id: 16,
+          title:
+            "Exercise 16: Fill in the blanks with right form of verbs. You may need to use one word more than once.",
+          words: [
+            "contribute",
+            "keep",
+            "work",
+            "be",
+            "become",
+            "confine",
+            "prove",
+            "develop",
+            "receive",
+            "adapt",
+          ],
+          answers: [
+            "confined",
+            "are",
+            "developed",
+            "adapting",
+            "receiving",
+            "becoming",
+            "working",
+            "prove",
+            "contribute",
+            "keeping",
+          ],
+          template:
+            "According to the history, women in the past were (a) within the four walls. But at present, they (b) no longer captive to their parents’ or husbands’ house. With the passage of time, the outlook and attitude have been (c) as men and women are (d) themselves to the changing society. By (e) education, they are (f) becoming pilots, doctors, engineers, high officials, etc. They are (g) working hand in hand with men in all worthy programmes. They are now able to (h) prove their worth. They (i) contribute much to the economy of the country. Now, it has come to the realization of men that no development is possible by (j) keeping half of our population idle at home.",
+        },
+        {
+          id: 17,
+          title:
+            "Exercise 17: Fill in the blanks with right form of verbs. You may need to use one word more than once.",
+          words: [
+            "have",
+            "owe",
+            "belong",
+            "cause",
+            "be",
+            "bestow",
+            "be",
+            "enable",
+            "show",
+            "lose",
+          ],
+          answers: [
+            "owe",
+            "bestowing",
+            "have",
+            "belongs",
+            "are",
+            "show",
+            "been",
+            "causing",
+            "losing",
+            "enabled",
+          ],
+          template:
+            "We (a) owe to our nature for (b) bestowing us with her gifts lavishly. We (c) have a large area of land but the negligible area of land that (d) belongs to us, is very fertile. We (e) are ungrateful to our soil. But our activities (f) show that we have (g) been ungrateful to our soil. We are constantly (h) causing soil pollution by our unwise activities. As a result, our fertile land is (i) losing its fertility which has (j) enabled us to grow crops easily.",
+        },
+        {
+          id: 18,
+          title:
+            "Exercise 18: Fill in the blanks with right form of verbs. You may need to use one word more than once.",
+          words: [
+            "drive",
+            "solve",
+            "create",
+            "suffer",
+            "occur",
+            "reach",
+            "cause",
+            "carry",
+            "violate",
+            "give",
+          ],
+          answers: [
+            "causes",
+            "occurs",
+            "causes",
+            "violate",
+            "drive",
+            "gives",
+            "carrying",
+            "reach",
+            "suffer",
+            "solved",
+          ],
+          template:
+            "Traffic jam is a common affair in big cities of our country. Increasing number of vehicles (a) traffic jam. Mainly it (b) occurs in the congested areas. Overtaking tendency also (c) causes traffic jam. Some drivers (d) violate the traffic rules and (e) drive carelessly. It (f) gives a lot of pains to the people. Ambulances (g) carrying patients cannot (h) reach hospital timely. Students and office-going people also (i) suffer due to traffic jam. This problem should be (j) solved immediately.",
+        },
+        {
+          id: 19,
+          title:
+            "Exercise 19: Fill in the blanks with right form of verbs. You may need to use one word more than once.",
+          words: [
+            "know",
+            "hinder",
+            "hear",
+            "begin",
+            "call",
+            "remember",
+            "inspire",
+            "be",
+            "bear",
+            "join",
+          ],
+          answers: [
+            "heard",
+            "is",
+            "is called",
+            "was born",
+            "hinder",
+            "joined",
+            "began",
+            "inspired",
+            "is known",
+            "remember",
+          ],
+          template:
+            "You must have (a) heard the name of Kazi Nazrul Islam. He (b) is our national poet. He (c) is called as a rebel poet as well. He (d) was born into a poor family. But dire needs could not (e) hinder his potentiality. When the First World War broke out, he (f) joined the army. After the war, he (g) began to write poems. At that time, his poems and songs (h) inspired people against oppression. He (i) is known the Shelley of Bangla literature. We should (j) remember him for his great deeds.",
+        },
+        {
+          id: 20,
+          title:
+            "Exercise 20: Fill in the blanks with right form of verbs. You may need to use one word more than once.",
+          words: [
+            "act",
+            "damage",
+            "breed",
+            "rise",
+            "result",
+            "consider",
+            "overcome",
+            "compare",
+            "build",
+            "be",
+          ],
+          answers: [
+            "is",
+            "breeds",
+            "acts",
+            "damage",
+            "resulting",
+            "build",
+            "to rise",
+            "be compared",
+            "overcome",
+            "is considered",
+          ],
+          template:
+            "Self-control (a) is a great power. It (b) breeds all other virtues. Man generally (c) acts on impulses and strong desires. Vicious desires (d) damage the purity of heart and mind (e) resulting the degradation of human nature. It is self-control that can help a man (f) build up a pure character which is very essential (g) to rise above the level of inhumanity. Nothing can (h) be compared to self-control to (i) overcome inhumanity. So, everybody (j) is considered for being self-controlled.",
+        },
+        {
+          id: 21,
+          title:
+            "Exercise 21: Fill in the blanks with right form of verbs. You may need to use one word more than once.",
+          words: [
+            "cause",
+            "carry",
+            "violate",
+            "occur",
+            "drive",
+            "solve",
+            "create",
+            "suffer",
+            "give",
+            "reach",
+          ],
+          answers: [
+            "causes",
+            "occurs",
+            "causes",
+            "violate",
+            "drive",
+            "gives",
+            "carrying",
+            "reach",
+            "suffer",
+            "solved",
+          ],
+          template:
+            "Traffic jam is a common affair in big cities of our country. Increasing number of vehicles (a) traffic jam. Mainly it (b) occurs in the congested areas. Overtaking tendency also (c) causes traffic jam. Some drivers (d) violate the traffic rules and (e) drive carelessly. It (f) gives a lot of pains to the people. Ambulances (g) carrying patients cannot (h) reach hospital timely. Students and office-going people also (i) suffer due to traffic jam. This problem should be (j) solved immediately.",
+        },
+
+        /* ================= SET 4: CONNECTORS (22-28) ================= */
+        {
+          id: 22,
+          title: "Exercise 22: Fill in the gaps with suitable Connectors.",
+          answers: ["Moreover", "But", "If", "When", "Therefore"],
+          template:
+            "Trees are very useful to us. They help us in many ways. They give us oxygen, food and shade. (a) they protect us from air pollution. (b) many people are not aware of this. They are cutting down trees every moment without consideration. (c) they continue to do it, one day there will be no trees left on earth. (d) this really happens, our lives will be at stake. (e) , we should stop this practice immediately and grow more and more trees for our own survival.",
+        },
+        {
+          id: 23,
+          title: "Exercise 23: Fill in the gaps with suitable Connectors.",
+          answers: ["when", "But", "and", "that", "too"],
+          template:
+            "Alexander was only twenty years old (a) he came to the throne. (b) even as a child he had shown fierce courage, a thirst for knowledge (c) a desire to conquer. He believed (d) like Achilles, he too had gods as his ancestors and that he, (e) , had a divine right to conquer and rule the world.",
+        },
+        {
+          id: 24,
+          title: "Exercise 24: Fill in the gaps with suitable Connectors.",
+          answers: ["both", "or", "Moreover", "to", "and"],
+          template:
+            "The world we live in is full of things (a) natural and manmade. Both natural and manmade things constitute our environment. Any abnormal change in chemical, physical (b) biological characteristics of the environment is called pollution. It causes a lot of harm to mankind. (c) , it creates health hazards to a greater extent. So, some effective and positive measures should be taken (d) prevent environment pollution. We (e) the government should take a hand to create a better environment for living on Earth.",
+        },
+        {
+          id: 25,
+          title: "Exercise 25: Fill in the gaps with suitable Connectors.",
+          answers: ["which", "not only", "but also", "Therefore", "If"],
+          template:
+            "Teaching is such a profession (a) helps to build a nation. A teacher is (b) a guide (c) a pioneer. He has to dedicate to this noble profession in order to guide the nation. (d) , he is called an architect of a new society. (e) he neglects his duties, social discipline will break down.",
+        },
+        {
+          id: 26,
+          title: "Exercise 26: Fill in the gaps with suitable Connectors.",
+          answers: ["as", "However", "as well as", "but", "or"],
+          template:
+            "People usually want to have their own way. They want to think and act (a) they like. (b) , one cannot have one’s own way all the time. A person cannot live in an environment without considering the interest of others (c) his own interest. People in society many take their own decision, (d) these decisions ought not to be unjust (e) harmful to others.",
+        },
+        {
+          id: 27,
+          title: "Exercise 27: Fill in the gaps with suitable Connectors.",
+          answers: ["who", "Otherwise", "Besides", "So", "Moreover"],
+          template:
+            "Honesty is a noble virtue. The man (a) possesses this rare quality is the happiest person in the world. To win people’s trust, a person must be honest. (b) nobody will believe him. (c) Allah helps the honest people. (d) children should be taught honesty from the beginning of life. (e) children should be brought up among the honest people.",
+        },
+        {
+          id: 28,
+          title: "Exercise 28: Fill in the gaps with suitable Connectors.",
+          answers: ["For", "like", "So", "Thus", "Therefore"],
+          template:
+            "English is the most widely used international language. (a) communicating with the foreigners, we cannot but use this language. There are certain jobs in the country (b) the jobs of a pilot, a postman, a telephone operator etc. where English is very essential. (c) a student wishing to go abroad must learn English. (d) the importance of learning English in our country cannot be ignored. (e) we should put high importance on learning English.",
+        },
+
+        /* ================= SET 5: SUFFIX & PREFIX (29-36) ================= */
+        {
+          id: 29,
+          title:
+            "Exercise 29: Add Suffixes or Prefixes or both to the root words in the brackets and complete the passage.",
+          answers: [
+            "Perseverance",
+            "successful",
+            "unsuccessful",
+            "misfortune",
+            "Persevering",
+            "Sincerity",
+            "enables",
+            "fruitfully",
+            "formative",
+            "misuse",
+          ],
+          template:
+            "(a) (persevere) is needed to be (b) (success) in life. Those who do not persevere in life become (c) (success) in their mission and only blame their lot for their (d) (fortune). (e) (Persevere) people always become successful. (f) (sincere) is another important virtue which (g) (able) a person to accomplish a job (h) (fruit). Student life is the (i) (form) period of a man’s life. One should not (j) (use) this period of life.",
+        },
+        {
+          id: 30,
+          title:
+            "Exercise 30: Add Suffixes or Prefixes or both to the root words in the brackets and complete the passage.",
+          answers: [
+            "relaxation",
+            "charmless",
+            "beautiful",
+            "Monotonous",
+            "smoothness",
+            "renews",
+            "overwork",
+            "harmful",
+            "aversion",
+            "creativity",
+          ],
+          template:
+            "Life without (a) (relax) and pleasure is dull. Life becomes (b) (charm) if it does not have any time to enjoy the (c) (beauty) objects of nature. (d) (monotony) work hinders the (e) (smooth) of work. Leisure (f) (new) our spirit to work. Everybody knows that (g) (work) is (h) (harm) Leisure does not mean (i) (averse) to work. It gives freshness and (j) (create) to our mind.",
+        },
+        {
+          id: 31,
+          title:
+            "Exercise 31: Add Suffixes or Prefixes or both to the root words in the brackets and complete the passage.",
+          answers: [
+            "riverine",
+            "agricultural",
+            "importance",
+            "dependent",
+            "insufficient",
+            "different",
+            "dry",
+            "extremely",
+            "unsuitable",
+            "betterment",
+          ],
+          template:
+            "Bangladesh is a (a) (river) and (b) (agriculture) country. So, we cannot ignore the (c) (important) of rivers. Our agriculture is largely (d) (depend) on the rivers. But we get (e) (sufficient) water for use from the rivers. There are (f) (differ) reasons behind it. At first the water of many rivers (g) (dry) up in summer. Again, the water of some rivers is (h) (extreme) poisonous. This poisonous water is (i) (suit) for our agriculture. So, water pollution should be prevented at any cost for the (j) (better) of our agriculture.",
+        },
+        {
+          id: 32,
+          title:
+            "Exercise 32: Add Suffixes or Prefixes or both to the root words in the brackets and complete the passage.",
+          answers: [
+            "utilization",
+            "valuable",
+            "idleness",
+            "Punctuality",
+            "enriches",
+            "human",
+            "biographies",
+            "undone",
+            "Obviously",
+            "respectable",
+          ],
+          template:
+            "Success in life depends on the proper (a) (utilize) of time. Those who waste their (b) (value) time in (c) (idle), reduce the time of their important work. (d) (punctual) is another great virtue of human beings that (e) (rich) the (f) (man) life. If one takes lesson from the (g) (biography) of successful persons, one will learn that they never kept any work (h) (do) for the next day. (i) (obvious), they were true to their words. So, they got a (j) (respect) position in the society.",
+        },
+        {
+          id: 33,
+          title:
+            "Exercise 33: Add Suffixes or Prefixes or both to the root words in the brackets and complete the passage.",
+          answers: [
+            "getting",
+            "riser",
+            "freshness",
+            "melodious",
+            "earlier",
+            "physical",
+            "physician",
+            "frequently",
+            "various",
+            "peaceful",
+          ],
+          template:
+            "Early rising is the habit of (a) (get) up from bed early in the morning. An early (b) (rise) can enjoy the (c) (fresh) of the morning air. He can hear the (d) (melody) songs of the birds. Again, he can start his day’s work (e) (early) than others. An early riser does not suffer from (f) (physic) problems very often. So, he need not go to any (g) (physic) (h) (frequent). Thus, an early riser enjoys (i) (vary) benefits and leads a (j) (peace) life.",
+        },
+        {
+          id: 34,
+          title:
+            "Exercise 34: Add Suffixes or Prefixes or both to the root words in the brackets and complete the passage.",
+          answers: [
+            "useful",
+            "impossible",
+            "natural",
+            "strengthens",
+            "indiscriminately",
+            "imbalance",
+            "plantation",
+            "happier",
+            "healthier",
+            "peaceful",
+          ],
+          template:
+            "Trees are (a) (use) to man in many ways. They are companion in our day to day life. It is (b) (possible) to build our homes, furniture etc. without trees. Trees save us from flood and (c) (nature) calamities. It (d) (strength) the soil. If we cut trees (e) (discriminately) there will be ecological (f) (balanced). So tree (g) (plant) programme should be extended for a better, (h) (happy), (i) (healthy) life and (j) (peace) environment.",
+        },
+        {
+          id: 35,
+          title:
+            "Exercise 35: Add Suffixes or Prefixes or both to the root words in the brackets and complete the passage.",
+          answers: [
+            "talented",
+            "active",
+            "historical",
+            "democratic",
+            "ensure",
+            "legendary",
+            "Movement",
+            "inception",
+            "independent",
+            "dreamer",
+          ],
+          template:
+            "(a) (talented) people are the asset of a country. We must be (b) (active) involved in highlighting their achievements. The (c) (historical) context of our (d) (democratic) growth will (e) (ensure) proper respect for our (f) (legendary) figures. The Language (g) (Movement) since its (h) (inception) inspired us to live as an (i) (independent) nation. Every freedom fighter was a true (j) (dreamer) of an exploitation-free society.",
+        },
+        {
+          id: 36,
+          title:
+            "Exercise 36: Add Suffixes or Prefixes or both to the root words in the brackets and complete the passage.",
+          answers: [
+            "writers",
+            "visitors",
+            "publishers",
+            "buyers",
+            "crowded",
+            "various",
+            "displayed",
+            "chosen",
+            "unavailable",
+            "welcome",
+          ],
+          template:
+            "The books of famous (a) (write) are put on sale in the book fair. Most of the (b) (visit) buy books of different (c) (publish). Almost no visitor returns from the fair without making any purchase. The (d) (buy) like to buy at a fair price. Our book fair is always (e) (crowd). As (f) (vary) books are (g) (play) in a fair, the buyers get a scope to choose books. They buy their (h) (choose) books after a long search. This faculty is (i) (available) in any place other than a book fair. A book fair is always (j) (come) to the students.",
+        },
+
+        /* ================= SET 6: TAG QUESTIONS (37-44) ================= */
+        {
+          id: 37,
+          title: "Exercise 37: Add tag questions to the following sentences.",
+          answers: [
+            "isn't it?",
+            "don't they?",
+            "shouldn't we?",
+            "don't they?",
+            "won't they?",
+          ],
+          template:
+            "<span class='sentence-item'>a. Patriotism is a noble virtue, (a)</span> <span class='sentence-item'>b. Wise people teach us to love our own country, (b)</span> <span class='sentence-item'>c. We should remember that motherland is above everything, (c)</span> <span class='sentence-item'>d. Some people forget it, (d)</span> <span class='sentence-item'>e. We hope that everybody will love his motherland, (e)</span>",
+        },
+        {
+          id: 38,
+          title: "Exercise 38: Add tag questions to the following sentences.",
+          answers: [
+            "isn't it?",
+            "don't they?",
+            "isn't it?",
+            "can they?",
+            "aren't they?",
+          ],
+          template:
+            "<span class='sentence-item'>a. War is a curse of human civilization, (a)</span> <span class='sentence-item'>b. Everybody suffers from it, (b)</span> <span class='sentence-item'>c. Massive destruction is found everywhere, (c)</span> <span class='sentence-item'>d. None can escape from the bombings of the enemy, (d)</span> <span class='sentence-item'>e. Women and children are the worst sufferers, (e)</span>",
+        },
+        {
+          id: 39,
+          title: "Exercise 39: Add tag questions to the following sentences.",
+          answers: [
+            "isn't it?",
+            "don't they?",
+            "don't they?",
+            "does he?",
+            "shall we?",
+          ],
+          template:
+            "<span class='sentence-item'>a. Modesty is a great virtue, (a)</span> <span class='sentence-item'>b. The modest always respect their superiors, (b)</span> <span class='sentence-item'>c. Everybody likes a modest person, (c)</span> <span class='sentence-item'>d. A modest student hardly fails to reach his goal, (d)</span> <span class='sentence-item'>e. Let’s try to be modest in our way of life, (e)</span>",
+        },
+        {
+          id: 40,
+          title: "Exercise 40: Add tag questions to the following sentences.",
+          answers: [
+            "don't they?",
+            "do they?",
+            "is it?",
+            "isn't it?",
+            "shall we?",
+          ],
+          template:
+            "<span class='sentence-item'>a. At present, everybody likes cricket, (a)</span> <span class='sentence-item'>b. Students hardly miss watching this game, (b)</span> <span class='sentence-item'>c. Nothing is more enjoyable to them than cricket, (c)</span> <span class='sentence-item'>d. How exciting the game is! (d)</span> <span class='sentence-item'>e. Let’s play this game, (e)</span>",
+        },
+        {
+          id: 41,
+          title: "Exercise 41: Add tag questions to the following sentences.",
+          answers: [
+            "shall we?",
+            "aren't I?",
+            "doesn't it?",
+            "should they?",
+            "will you?",
+          ],
+          template:
+            "<span class='sentence-item'>a. Let's have a walk outside the farm, (a)</span> <span class='sentence-item'>b. I am in the habit of walking every morning, (b)</span> <span class='sentence-item'>c. Morning entertains us with fresh air, (c)</span> <span class='sentence-item'>d. No one should miss the opportunity, (d)</span> <span class='sentence-item'>e. Have a try to form this habit of morning walk, (e)</span>",
+        },
+        {
+          id: 42,
+          title: "Exercise 42: Add tag questions to the following sentences.",
+          answers: [
+            "aren't they?",
+            "do we?",
+            "aren't they?",
+            "isn't it?",
+            "do they?",
+          ],
+          template:
+            "<span class='sentence-item'>a. Everyone is nostalgic in life, (a)</span> <span class='sentence-item'>b. We hardly forget the golden past, (b)</span> <span class='sentence-item'>c. The memories of childhood are colorful, (c)</span> <span class='sentence-item'>d. The sweetest memory of childhood is always haunting us, (d)</span> <span class='sentence-item'>e. Who forgets these memories, (e)</span>",
+        },
+        {
+          id: 43,
+          title: "Exercise 43: Add tag questions to the following sentences.",
+          answers: [
+            "aren't I?",
+            "isn't it?",
+            "did they?",
+            "could they?",
+            "don't they?",
+          ],
+          template:
+            "<span class='sentence-item'>a. I am an SSC examinee, (a)</span> <span class='sentence-item'>b. My expectation is getting A+, (b)</span> <span class='sentence-item'>c. Some of my classmates became addicted to using mobile phones, (c)</span> <span class='sentence-item'>d. They could not pass the test exam, (d)</span> <span class='sentence-item'>e. Everybody hates them for this reason, (e)</span>",
+        },
+        {
+          id: 44,
+          title: "Exercise 44: Add tag questions to the following sentences.",
+          answers: [
+            "didn't they?",
+            "hasn't it?",
+            "aren't they?",
+            "should we?",
+            "can they?",
+          ],
+          template:
+            "<span class='sentence-item'>a. They fought for the independence of our country, (a)</span> <span class='sentence-item'>b. Their sacrifice has given us freedom in every sphere of life, (b)</span> <span class='sentence-item'>c. Their names are written in golden letters, (c)</span> <span class='sentence-item'>d. We should never forget them, (d)</span> <span class='sentence-item'>e. None of us can solve this problem, (e)</span>",
+        },
+
+        /* ================= SET 7: TRANSFORMATION OF SENTENCES (45) ================= */
+        {
+          id: 45,
+          title: "Exercise 45: Transform the following sentences as directed.",
+          isSeparateBlockLine: true,
+          answers: [
+            "Does it matter if a man lives many years or not?",
+            "All men cannot but die.",
+            "It is our responsibility to do good deeds.",
+            "By using time properly, we can be benefited.",
+            "A patriot fears only the Creator.",
+            "There are laws to punish the terrorists, but they are not properly applied.",
+            "A man who is corrupt can do anything against morality.",
+            "Hazi Mohammad Mohsin was not an unkind man.",
+            "What an effective role it plays in the field of trade and commerce!",
+            "There lived a woman in the house who was old.",
+            "She helped the helpless.",
+            "It is a difficult thing.",
+            "What a miserable life an idle man leads!",
+            "We must work hard, and then we can improve our lot.",
+            "We need flowers so that we can decorate a place.",
+            "The thief was very needy.",
+            "Didn't the woman become sympathetic to see Taimur?",
+            "They are our real friends, so they remain with us in time of danger.",
+            "Only books can remove the darkness of ignorance.",
+            "How sensible it is!",
+            "It was Cumberland where he was born on April 4, 1770.",
+            "Didn't he inherit vast property from his father and sister?",
+            "In spite of its being a blessing, it has dark sides.",
+            "A man who has patriotic zeal is called a patriot.",
+            "How miserably the lazy suffer in the long run!",
+          ],
+          template: `
+            <div class='sentence-item'><strong>a.</strong> It matters little if a man lives many years or not. (Interrogative) (a)</div>
+            <div class='sentence-item'><strong>b.</strong> All men must die. (Negative) (b)</div>
+            <div class='sentence-item'><strong>c.</strong> Isn’t it our responsibility to do good deeds? (Assertive) (c)</div>
+            <div class='sentence-item'><strong>d.</strong> If we use time properly, we can be benefited. (Simple) (d)</div>
+            <div class='sentence-item'><strong>e.</strong> A patriot fears none but the Creator. (Affirmative) (e)</div>
+            <div class='sentence-item'><strong>f.</strong> Though there are laws to punish the terrorists, they are not properly applied. (Compound) (f)</div>
+            <div class='sentence-item'><strong>g.</strong> A corrupt man can do anything against morality. (Complex) (g)</div>
+            <div class='sentence-item'><strong>h.</strong> Hazi Mohammad Mohsin was a kind man. (Negative) (h)</div>
+            <div class='sentence-item'><strong>i.</strong> It plays an effective role in the field of trade and commerce. (Exclamatory) (i)</div>
+            <div class='sentence-item'><strong>j.</strong> There lived an old woman in the house. (Complex) (j)</div>
+            <div class='sentence-item'><strong>k.</strong> She helped those who were helpless. (Simple) (k)</div>
+            <div class='sentence-item'><strong>l.</strong> It is not an easy thing. (Affirmative) (l)</div>
+            <div class='sentence-item'><strong>m.</strong> An idle man leads a very miserable life. (Exclamatory) (m)</div>
+            <div class='sentence-item'><strong>n.</strong> By working hard, we can improve our lot. (Compound) (n)</div>
+            <div class='sentence-item'><strong>o.</strong> We need flowers to decorate a place. (Complex) (o)</div>
+            <div class='sentence-item'><strong>p.</strong> How needy the thief was! (Assertive) (p)</div>
+            <div class='sentence-item'><strong>q.</strong> The woman became sympathetic to see Taimur. (Interrogative) (q)</div>
+            <div class='sentence-item'><strong>r.</strong> As they are our real friends, they remain with us in time of danger. (Compound) (r)</div>
+            <div class='sentence-item'><strong>s.</strong> Nothing but books can remove the darkness of ignorance. (Assertive) (s)</div>
+            <div class='sentence-item'><strong>t.</strong> It is really sensible. (Exclamatory) (t)</div>
+            <div class='sentence-item'><strong>u.</strong> He was born at Cumberland on April 4, 1770. (Complex) (u)</div>
+            <div class='sentence-item'><strong>v.</strong> He inherited vast property from his father and sister. (Interrogative) (v)</div>
+            <div class='sentence-item'><strong>w.</strong> Though it is a blessing, it has dark sides. (Simple) (w)</div>
+            <div class='sentence-item'><strong>x.</strong> A man having patriotic zeal is called a patriot. (Complex) (x)</div>
+            <div class='sentence-item'><strong>y.</strong> The lazy suffer miserably in the long run. (Exclamatory) (y)</div>
+          `,
+        },
+      ];
+
+      const container = document.getElementById("exercises-container");
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+      const statusTracker = document.getElementById("status-tracker");
+
+      let currentActiveIndex = 0;
+
+      // Check session status on page loads
+      window.addEventListener("DOMContentLoaded", () => {
+        const cachedName = sessionStorage.getItem("portal_student_name");
+        if (!cachedName) {
+          document.getElementById("studentModal").style.display = "flex";
+        } else {
+          init();
+        }
+      });
+
+      function saveStudentSession() {
+        const nameInput = document
+          .getElementById("studentNameInput")
+          .value.trim();
+        if (nameInput === "") {
+          alert("Please enter a name to log your response progress.");
+          return;
+        }
+        sessionStorage.setItem("portal_student_name", nameInput);
+        document.getElementById("studentModal").style.display = "none";
+        init();
+      }
+
+      function renderPassage(
+        template,
+        exerciseId,
+        totalAnswers,
+        isSeparateBlock,
+      ) {
+        const alphabets = [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l",
+          "m",
+          "n",
+          "o",
+          "p",
+          "q",
+          "r",
+          "s",
+          "t",
+          "u",
+          "v",
+          "w",
+          "x",
+          "y",
+          "z",
+        ];
+        let updatedPassage = template;
+
+        for (let idx = 0; idx < totalAnswers; idx++) {
+          const letter = alphabets[idx];
+          const targetStr = `(${letter})`;
+
+          let replacement = "";
+          if (isSeparateBlock) {
+            replacement = `
+                <span class="blank-container">
+                    <span class="blank-label">${letter.toUpperCase()}</span>
+                    <input type="text" id="input-${exerciseId}-${idx}" class="blank-input" autocomplete="off" placeholder="Type your complete transformed sentence here...">
+                    <span id="mark-${exerciseId}-${idx}" class="correction-mark"></span>
+                </span>
+            `;
+          } else {
+            replacement = `
+                <span class="blank-container">
+                    <span class="blank-label">(${letter})</span>
+                    <input type="text" id="input-${exerciseId}-${idx}" class="blank-input" autocomplete="off" placeholder="...">
+                    <span id="mark-${exerciseId}-${idx}" class="correction-mark"></span>
+                </span>
+            `;
+          }
+
+          updatedPassage = updatedPassage.split(targetStr).join(replacement);
+        }
+        return updatedPassage;
+      }
+
+      function init() {
+        container.innerHTML = ""; // Clear out previous rendering structure
+        exercisesData.forEach((ex, index) => {
+          const card = document.createElement("div");
+          const isBlock = !!ex.isSeparateBlockLine;
+          card.className = `exercise-card ${index === currentActiveIndex ? "active" : ""} ${isBlock ? "block-input-layout" : ""}`;
+          card.id = `card-${ex.id}`;
+
+          let wordBoxHtml = "";
+          if (ex.words && ex.words.length > 0) {
+            const tokensHtml = ex.words
+              .map((w) => `<span class="word-token">${w}</span>`)
+              .join("");
+            wordBoxHtml = `<div class="word-box">${tokensHtml}</div>`;
+          }
+
+          card.innerHTML = `
+                <div class="exercise-header">${ex.title}</div>
+                ${wordBoxHtml}
+                <div class="passage">${renderPassage(ex.template, ex.id, ex.answers.length, isBlock)}</div>
+                <div class="card-actions">
+                    <button id="check-btn-${ex.id}" class="btn btn-check-sec" disabled onclick="checkSectionAnswers(${index})">Check Correct Answer</button>
+                    <button id="submit-btn-${ex.id}" class="btn btn-submit" onclick="lockExercise(${index})">Submit Section</button>
+                </div>
+            `;
+          container.appendChild(card);
+        });
+        updateNavigationButtons();
+      }
+
+      window.lockExercise = function (index) {
+        const ex = exercisesData[index];
+        let itemsFilled = true;
+        let loggedAnswers = [];
+
+        const alphabets = [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l",
+          "m",
+          "n",
+          "o",
+          "p",
+          "q",
+          "r",
+          "s",
+          "t",
+          "u",
+          "v",
+          "w",
+          "x",
+          "y",
+          "z",
+        ];
+
+        for (let i = 0; i < ex.answers.length; i++) {
+          const inputField = document.getElementById(`input-${ex.id}-${i}`);
+          if (inputField && inputField.value.trim() === "") {
+            itemsFilled = false;
+            break;
+          }
+          if (inputField) {
+            loggedAnswers.push(`(${alphabets[i]}) ${inputField.value.trim()}`);
+          }
+        }
+
+        if (!itemsFilled) {
+          alert(
+            "Please complete all blank fields inside this section before submitting.",
+          );
+          return;
+        }
+
+        // Freeze Input Fields
+        for (let i = 0; i < ex.answers.length; i++) {
+          const inputField = document.getElementById(`input-${ex.id}-${i}`);
+          if (inputField) inputField.disabled = true;
+        }
+
+        const submitBtn = document.getElementById("submit-btn-" + ex.id);
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Sending Answers...";
+
+        // Collect Session Metadata for automated email payload
+        const currentStudent =
+          sessionStorage.getItem("portal_student_name") || "Unknown Student";
+
+        const emailParams = {
+          student_name: currentStudent,
+          exercise_title: ex.title,
+          student_responses: loggedAnswers.join("\n"),
+          to_email: "taufiq.xenox@gmail.com",
+        };
+
+        // Fire transaction through front-end framework API
+        // Replace "YOUR_SERVICE_ID" and "YOUR_TEMPLATE_ID" with your customized configurations from EmailJS
+        emailjs.send("service_0twqody", "template_4puaejt", emailParams).then(
+          () => {
+            submitBtn.innerText = "Submitted Successfully";
+            document.getElementById("check-btn-" + ex.id).disabled = false;
+          },
+          (err) => {
+            alert("Submission error encountered: " + JSON.stringify(err));
+            submitBtn.innerText = "Submit Section";
+            submitBtn.disabled = false;
+            for (let i = 0; i < ex.answers.length; i++) {
+              const inputField = document.getElementById(`input-${ex.id}-${i}`);
+              if (inputField) inputField.disabled = false;
+            }
+          },
+        );
+      };
+
+      window.checkSectionAnswers = function (index) {
+        const ex = exercisesData[index];
+
+        ex.answers.forEach((correctValue, idx) => {
+          const targetInput = document.getElementById(`input-${ex.id}-${idx}`);
+          const targetMark = document.getElementById(`mark-${ex.id}-${idx}`);
+
+          if (!targetInput) return;
+
+          const studentResponse = targetInput.value
+            .trim()
+            .toLowerCase()
+            .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "");
+          const validationTarget = correctValue
+            .toLowerCase()
+            .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "");
+
+          if (studentResponse === validationTarget) {
+            targetInput.classList.add("input-success");
+            targetMark.innerHTML = `<span class="text-success">✓ Correct</span>`;
+          } else {
+            targetInput.classList.add("input-error");
+            targetMark.innerHTML = `<span class="text-error"><strong>Key:</strong> ${correctValue}</span>`;
+          }
+        });
+
+        const checkBtn = document.getElementById("check-btn-" + ex.id);
+        checkBtn.disabled = true;
+        checkBtn.innerText = "Evaluated";
+      };
+
+      function jumpToExercise(exerciseNumber) {
+        const targetIndex = exercisesData.findIndex(
+          (ex) => ex.id === exerciseNumber,
+        );
+        if (targetIndex !== -1) {
+          showExercisePage(targetIndex);
+        }
+      }
+
+      function processManualJump() {
+        const inputField = document.getElementById("exercise-target-num");
+        const val = parseInt(inputField.value, 10);
+        if (isNaN(val) || val < 1 || val > exercisesData.length) {
+          alert(
+            `Please enter a valid exercise number between 1 and ${exercisesData.length}.`,
+          );
+          return;
+        }
+        jumpToExercise(val);
+      }
+
+      function updateNavigationButtons() {
+        prevBtn.disabled = currentActiveIndex === 0;
+        nextBtn.disabled = currentActiveIndex === exercisesData.length - 1;
+        statusTracker.innerText = `Exercise ${currentActiveIndex + 1} of ${exercisesData.length}`;
+      }
+
+      function showExercisePage(index) {
+        const cards = document.querySelectorAll(".exercise-card");
+        if (cards.length > 0) {
+          cards[currentActiveIndex].classList.remove("active");
+          currentActiveIndex = index;
+          cards[currentActiveIndex].classList.add("active");
+        }
+        updateNavigationButtons();
+      }
+
+      prevBtn.addEventListener("click", () => {
+        if (currentActiveIndex > 0) showExercisePage(currentActiveIndex - 1);
+      });
+
+      nextBtn.addEventListener("click", () => {
+        if (currentActiveIndex < exercisesData.length - 1)
+          showExercisePage(currentActiveIndex + 1);
+      });
+
+      window.jumpToExercise = jumpToExercise;
+    </script>
+  </body>
+</html>
