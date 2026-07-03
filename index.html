@@ -1640,7 +1640,7 @@
       function updateNavigationButtons() {
         prevBtn.disabled = currentActiveIndex === 0;
         nextBtn.disabled = currentActiveIndex === exercisesData.length - 1;
-        statusTracker.innerText = `Exercise ${currentActiveIndex + 1} of ${exercisesData.length}`;
+        statusTracker.innerText = `${currentActiveIndex + 1} of ${exercisesData.length}`;
       }
 
       function showExercisePage(index) {
